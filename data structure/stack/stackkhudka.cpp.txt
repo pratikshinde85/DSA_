@@ -1,0 +1,110 @@
+#include <iostream>
+using namespace std;
+class Stack
+{
+    public :
+    int top=-1;
+    int * arr;
+    int size;
+
+    Stack(int size)
+    {
+        arr=new int[size];
+        this->size=size;
+
+    }
+
+    //inserttion
+  //void printtt(void);
+    void push(int data)
+    {
+        if(size-top>1)
+        {
+            top++;
+            arr[top]=data;
+           
+        }
+        else{
+            //stack is full
+            cout<<"stack OverFlow..."<<endl;
+        }
+
+    }
+ //remove
+    void pop()
+    {
+        if(top==-1)
+        {
+            cout<<" stack underFlow.."<<endl;
+        }
+        else
+        {
+             top--;
+        }
+       
+    }
+ //getting top of stack
+    int getTop()
+    {
+         if(top==-1)
+        {
+            cout<<" stack is empty.."<<endl;
+        }
+        else
+        {
+             return arr[top];
+        }
+       
+    }
+    //getting the size of stack
+    int getSize()
+    {
+        return top+1;
+    }
+
+    //check the empty stack or not..
+    bool  isEmpty()
+    {
+        if(top==-1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+};
+// void Stack::printtt(void)
+// {
+//     ;
+// }
+int main() {
+  cout << "Hello world!" << endl;
+
+  Stack s(10);
+  s.push(10);
+  s.push(20);
+  s.push(30);
+//  while(!s.isEmpty())
+//   {
+//       cout<<s.getTop()<<" ";
+//       s.pop();
+//   }
+cout<<endl;
+
+ s.pop();
+
+//  while(!s.isEmpty())
+//   {
+//       cout<<s.getTop()<<" ";
+//       s.pop();
+//   }
+
+  cout<<"top of stack is:"<<s.getTop()<<endl;
+  cout<<"size of Stack is :"<<s.getSize()<<endl; 
+
+  cout<<s.isEmpty()<<endl;
+  return 0;
+}
